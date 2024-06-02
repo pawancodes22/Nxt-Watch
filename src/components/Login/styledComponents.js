@@ -38,7 +38,7 @@ export const LoginButton = styled.button`
   border-style: none;
   background-color: #3b82f6;
   padding: 10px;
-  color: white;
+  color: #ffffff;
   border-radius: 7px;
 `
 

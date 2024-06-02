@@ -1,5 +1,6 @@
 import {
   ListItem,
+  DivItem,
   Thumbnail,
   Title,
   ViewCount,
@@ -15,15 +16,17 @@ const GamingVideoItem = props => (
       const {item} = props
       const {id, thumbnailUrl, title, viewCount} = item
       return (
-        <LinkItem to={`/videos/${id}`}>
-          <ListItem>
-            <Thumbnail src={thumbnailUrl} alt="thumbnail" />
-            <Title isDark={isDark}>{title}</Title>
-            <ViewCount isDark={isDark}>
-              {viewCount} Watching Worldwide
-            </ViewCount>
-          </ListItem>
-        </LinkItem>
+        <ListItem>
+          <LinkItem to={`/videos/${id}`}>
+            <DivItem>
+              <Thumbnail src={thumbnailUrl} alt="video thumbnail" />
+              <Title isDark={isDark}>{title}</Title>
+              <ViewCount isDark={isDark}>
+                {viewCount} Watching Worldwide
+              </ViewCount>
+            </DivItem>
+          </LinkItem>
+        </ListItem>
       )
     }}
   </NxtWatchContext.Consumer>

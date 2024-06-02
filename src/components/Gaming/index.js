@@ -47,7 +47,7 @@ class Gaming extends Component {
 
   fetchGamingVideos = async () => {
     this.setState({gamingVideoApiStatus: apiStatusConstants.pending})
-    const jwtToken = Cookies.get('jwtToken')
+    const jwtToken = Cookies.get('jwt_token')
     const gamingUrl = 'https://apis.ccbp.in/videos/gaming'
     const options = {
       headers: {
@@ -103,13 +103,13 @@ class Gaming extends Component {
         const {gamingVideosList} = this.state
         return (
           <GamingMainBgContainer>
-            <GamingTopContainer isDark={isDark}>
+            <GamingTopContainer isDark={isDark} data-testid="banner">
               <GamingLogoContainer isDark={isDark}>
                 <GamingLogo />
               </GamingLogoContainer>
               <GamingHeading isDark={isDark}>Gaming</GamingHeading>
             </GamingTopContainer>
-            <VideosContainer isDark={isDark}>
+            <VideosContainer isDark={isDark} data-testid="gaming">
               {gamingVideosList.map(item => (
                 <GamingVideoItem key={item.id} item={item} />
               ))}
@@ -129,13 +129,13 @@ class Gaming extends Component {
             {!isDark && (
               <FailureImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
-                alt="failure light theme"
+                alt="failure view"
               />
             )}
             {isDark && (
               <FailureImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png"
-                alt="failure dark theme"
+                alt="failure view"
               />
             )}
             <FailureViewHeading isDark={isDark}>

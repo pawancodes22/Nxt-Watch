@@ -76,7 +76,7 @@ export const BannerCloseButton = styled.button`
 `
 
 export const HomeVideosContainer = styled.div`
-  background-color: ${props => (props.isDark ? '#181818' : '#f8fafc')};
+  background-color: ${props => (props.isDark ? '#181818' : '#f9f9f9')};
   padding: 30px;
   padding-left: 95px;
   @media (max-width: 767px) {

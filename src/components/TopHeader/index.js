@@ -41,7 +41,7 @@ import NxtWatchContext from '../../context/NxtWatchContext'
 
 const TopHeader = props => {
   const LogOut = () => {
-    Cookies.remove('jwtToken')
+    Cookies.remove('jwt_token')
     const {history} = props
     history.replace('/login')
   }
@@ -55,23 +55,23 @@ const TopHeader = props => {
               {!isDark && (
                 <HeaderLogo
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                  alt="light theme"
+                  alt="website logo"
                 />
               )}
               {isDark && (
                 <HeaderLogo
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-                  alt="dark theme"
+                  alt="website logo"
                 />
               )}
             </StyledLink>
             <NavItemsContainer>
-              <NoBorderButton onClick={toggleTheme}>
-                <ListItem>
+              <ListItem>
+                <NoBorderButton onClick={toggleTheme} data-testid="theme">
                   {!isDark && <MoonIcon />}
                   {isDark && <SunIcon />}
-                </ListItem>
-              </NoBorderButton>
+                </NoBorderButton>
+              </ListItem>
               <ListItem>
                 <NavProfileImage
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
@@ -203,7 +203,7 @@ const TopHeader = props => {
                       <>
                         <PopupDiv isDark={isDark}>
                           <PopupHeading isDark={isDark}>
-                            Are you sure you want to logout?
+                            Are you sure, you want to logout
                           </PopupHeading>
                           <CancelLogoutButtonsContainer>
                             <CancelButton

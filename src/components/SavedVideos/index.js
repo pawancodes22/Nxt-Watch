@@ -29,7 +29,7 @@ class SavedVideos extends Component {
       {value => {
         const {isDark} = value
         return (
-          <NoVideosContainer isDark={isDark}>
+          <NoVideosContainer isDark={isDark} data-testid="savedVideos">
             <NoVideosImage
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
               alt="no saved videos"
@@ -53,14 +53,14 @@ class SavedVideos extends Component {
         const areVideosPresent = savedVideos.length !== 0
         return (
           <SavedMainBgContainer>
-            <SavedTopContainer isDark={isDark}>
+            <SavedTopContainer isDark={isDark} data-testid="banner">
               <SavedLogoContainer isDark={isDark}>
                 <FireLogo />
               </SavedLogoContainer>
               <SavedHeading isDark={isDark}>Saved Videos</SavedHeading>
             </SavedTopContainer>
             {areVideosPresent && (
-              <VideosContainer isDark={isDark}>
+              <VideosContainer isDark={isDark} data-testid="savedVideos">
                 {savedVideos.map(item => (
                   <SavedVideoItem key={item.id} item={item} />
                 ))}

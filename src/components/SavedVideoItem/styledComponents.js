@@ -2,12 +2,15 @@ import styled from 'styled-components'
 
 import {Link} from 'react-router-dom'
 
+export const ListItem = styled.li`
+  list-style-type: none;
+`
+
 export const LinkItem = styled(Link)`
   text-decoration: none;
 `
 
-export const ListItem = styled.li`
-  list-style-type: none;
+export const DivItem = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 30px;

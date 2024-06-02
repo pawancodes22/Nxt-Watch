@@ -8,6 +8,9 @@ export const LinkItem = styled(Link)`
 
 export const ListItem = styled.li`
   list-style-type: none;
+`
+
+export const DivItem = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 30px;

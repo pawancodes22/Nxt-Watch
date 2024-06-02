@@ -2,7 +2,7 @@ import './App.css'
 
 import {Component} from 'react'
 
-import {Switch, Route, withRouter} from 'react-router-dom'
+import {Switch, Route, withRouter, Redirect} from 'react-router-dom'
 
 import Login from './components/Login'
 
@@ -19,6 +19,8 @@ import Gaming from './components/Gaming'
 import VideoDetails from './components/VideoDetails'
 
 import SavedVideos from './components/SavedVideos'
+
+import NotFound from './components/NotFound'
 
 // Replace your code here
 class App extends Component {
@@ -100,6 +102,8 @@ class App extends Component {
           <ProtectedRoute exact path="/gaming" component={Gaming} />
           <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
           <ProtectedRoute exact path="/videos/:id" component={VideoDetails} />
+          <ProtectedRoute exact path="/bad-path" component={NotFound} />
+          <Redirect to="/bad-path" />
         </Switch>
       </NxtWatchContext.Provider>
     )

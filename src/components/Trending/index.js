@@ -47,7 +47,7 @@ class Trending extends Component {
 
   fetchTrendingVideos = async () => {
     this.setState({trendingVideoApiStatus: apiStatusConstants.pending})
-    const jwtToken = Cookies.get('jwtToken')
+    const jwtToken = Cookies.get('jwt_token')
     const trendingUrl = 'https://apis.ccbp.in/videos/trending'
     const options = {
       headers: {
@@ -108,13 +108,13 @@ class Trending extends Component {
         const {trendingVideosList} = this.state
         return (
           <TrendingMainBgContainer>
-            <TrendingTopContainer isDark={isDark}>
+            <TrendingTopContainer isDark={isDark} data-testid="banner">
               <TrendingLogoContainer isDark={isDark}>
                 <FireLogo />
               </TrendingLogoContainer>
               <TrendingHeading isDark={isDark}>Trending</TrendingHeading>
             </TrendingTopContainer>
-            <VideosContainer isDark={isDark}>
+            <VideosContainer isDark={isDark} data-testid="trending">
               {trendingVideosList.map(item => (
                 <TrendingVideoItem key={item.id} item={item} />
               ))}
@@ -134,13 +134,13 @@ class Trending extends Component {
             {!isDark && (
               <FailureImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
-                alt="failure light theme"
+                alt="failure view"
               />
             )}
             {isDark && (
               <FailureImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png"
-                alt="failure dark theme"
+                alt="failure view"
               />
             )}
             <FailureViewHeading isDark={isDark}>

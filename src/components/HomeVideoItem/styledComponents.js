@@ -6,8 +6,11 @@ export const LinkStyle = styled(Link)`
   text-decoration: none;
 `
 
-export const VideoContainer = styled.li`
+export const ListItem = styled.li`
   list-style-type: none;
+`
+
+export const VideoContainer = styled.div`
   width: 300px;
   margin-right: 30px;
   margin-bottom: 40px;

@@ -1,9 +1,8 @@
 import {
   SideHeaderContainer,
   SideHeaderUnorderedList,
-  SideHeaderList,
+  SideHeaderDiv,
   SideHeaderButtonContainer,
-  NoBorderButton,
   SideHeaderPara,
   LowerContainer,
   ContactUsHeading,
@@ -14,6 +13,8 @@ import {
   TrendingIcon,
   SaveButton,
   GamepadIcon,
+  LinkStyled,
+  SideHeaderList,
 } from './styledComponents'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -21,59 +22,67 @@ import NxtWatchContext from '../../context/NxtWatchContext'
 const SideHeader = () => (
   <NxtWatchContext.Consumer>
     {value => {
-      const {isDark, activeTabId, toggleActiveTab} = value
+      const {isDark, activeTabId} = value
       return (
         <SideHeaderContainer isDark={isDark}>
           <SideHeaderUnorderedList isDark={isDark}>
-            <SideHeaderList
-              activeTabId={activeTabId}
-              isDark={isDark}
-              currentId="HOME"
-            >
-              <NoBorderButton onClick={() => toggleActiveTab('HOME')}>
-                <SideHeaderButtonContainer>
-                  <HomeIcon isDark={isDark} activeTabId={activeTabId} />
-                  <SideHeaderPara isDark={isDark}>Home</SideHeaderPara>
-                </SideHeaderButtonContainer>
-              </NoBorderButton>
-            </SideHeaderList>
-            <SideHeaderList
-              activeTabId={activeTabId}
-              currentId="TRENDING"
-              isDark={isDark}
-            >
-              <NoBorderButton>
-                <SideHeaderButtonContainer
-                  onClick={() => toggleActiveTab('TRENDING')}
+            <SideHeaderList>
+              <LinkStyled to="/">
+                <SideHeaderDiv
+                  activeTabId={activeTabId}
+                  isDark={isDark}
+                  currentId="HOME"
                 >
-                  <TrendingIcon isDark={isDark} activeTabId={activeTabId} />
-                  <SideHeaderPara isDark={isDark}>Trending</SideHeaderPara>
-                </SideHeaderButtonContainer>
-              </NoBorderButton>
+                  <SideHeaderButtonContainer>
+                    <HomeIcon isDark={isDark} activeTabId={activeTabId} />
+                    <SideHeaderPara isDark={isDark}>Home</SideHeaderPara>
+                  </SideHeaderButtonContainer>
+                </SideHeaderDiv>
+              </LinkStyled>
             </SideHeaderList>
-            <SideHeaderList
-              activeTabId={activeTabId}
-              currentId="GAMING"
-              isDark={isDark}
-            >
-              <NoBorderButton onClick={() => toggleActiveTab('GAMING')}>
-                <SideHeaderButtonContainer>
-                  <GamepadIcon isDark={isDark} activeTabId={activeTabId} />
-                  <SideHeaderPara isDark={isDark}>Gaming</SideHeaderPara>
-                </SideHeaderButtonContainer>
-              </NoBorderButton>
+            <SideHeaderList>
+              <LinkStyled to="/trending">
+                <SideHeaderDiv
+                  activeTabId={activeTabId}
+                  currentId="TRENDING"
+                  isDark={isDark}
+                >
+                  <SideHeaderButtonContainer>
+                    <TrendingIcon isDark={isDark} activeTabId={activeTabId} />
+                    <SideHeaderPara isDark={isDark}>Trending</SideHeaderPara>
+                  </SideHeaderButtonContainer>
+                </SideHeaderDiv>
+              </LinkStyled>
             </SideHeaderList>
-            <SideHeaderList
-              activeTabId={activeTabId}
-              currentId="SAVED_VIDEOS"
-              isDark={isDark}
-            >
-              <NoBorderButton onClick={() => toggleActiveTab('SAVED_VIDEOS')}>
-                <SideHeaderButtonContainer>
-                  <SaveButton isDark={isDark} activeTabId={activeTabId} />
-                  <SideHeaderPara isDark={isDark}>Saved videos</SideHeaderPara>
-                </SideHeaderButtonContainer>
-              </NoBorderButton>
+            <SideHeaderList>
+              <LinkStyled to="/gaming">
+                <SideHeaderDiv
+                  activeTabId={activeTabId}
+                  currentId="GAMING"
+                  isDark={isDark}
+                >
+                  <SideHeaderButtonContainer>
+                    <GamepadIcon isDark={isDark} activeTabId={activeTabId} />
+                    <SideHeaderPara isDark={isDark}>Gaming</SideHeaderPara>
+                  </SideHeaderButtonContainer>
+                </SideHeaderDiv>
+              </LinkStyled>
+            </SideHeaderList>
+            <SideHeaderList>
+              <LinkStyled to="/saved-videos">
+                <SideHeaderDiv
+                  activeTabId={activeTabId}
+                  currentId="SAVED_VIDEOS"
+                  isDark={isDark}
+                >
+                  <SideHeaderButtonContainer>
+                    <SaveButton isDark={isDark} activeTabId={activeTabId} />
+                    <SideHeaderPara isDark={isDark}>
+                      Saved videos
+                    </SideHeaderPara>
+                  </SideHeaderButtonContainer>
+                </SideHeaderDiv>
+              </LinkStyled>
             </SideHeaderList>
           </SideHeaderUnorderedList>
           <LowerContainer isDark={isDark}>

@@ -29,7 +29,7 @@ export const VideoDetailsBgContainer = styled.div`
 
 export const VideoDetailsTopContainer = styled.div`
   padding: 25px;
-  background-color: ${props => (props.isDark ? '#181818' : ' #f1f1f1')};
+  background-color: ${props => (props.isDark ? '#0f0f0f' : '#f9f9f9')};
   display: flex;
   flex-direction: column;
   @media (max-width: 767px) {
@@ -71,7 +71,7 @@ export const VideoDetailsHeading = styled.p`
 
 export const VideosContainer = styled.ul`
   flex-grow: 1;
-  background-color: ${props => (props.isDark ? 'black' : '#f9f9f9')};
+  background-color: ${props => (props.isDark ? '#0f0f0f' : '#f9f9f9')};
   padding: 40px;
   margin: 0px;
   @media (max-width: 575px) {

@@ -8,6 +8,9 @@ export const LinkItem = styled(Link)`
 
 export const ListItem = styled.li`
   list-style-type: none;
+`
+
+export const DivItem = styled.div`
   display: flex;
   flex-direction: column;
   font-family: 'Roboto';
@@ -29,7 +32,7 @@ export const Thumbnail = styled.img`
   }
 `
 
-export const Title = styled.h1`
+export const Title = styled.p`
   margin: 5px;
   color: ${props => (props.isDark ? 'white' : 'black')};
   font-size: 17px;

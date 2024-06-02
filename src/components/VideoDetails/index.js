@@ -71,7 +71,7 @@ class VideoDetails extends Component {
 
   fetchVideosDetails = async () => {
     this.setState({videoDetailsApiStatus: apiStatusConstants.pending})
-    const jwtToken = Cookies.get('jwtToken')
+    const jwtToken = Cookies.get('jwt_token')
     const videoDetailsUrl = `https://apis.ccbp.in/videos/${this.getId()}`
     const options = {
       headers: {
@@ -175,7 +175,10 @@ class VideoDetails extends Component {
         }
         return (
           <VideoDetailsBgContainer>
-            <VideoDetailsTopContainer isDark={isDark}>
+            <VideoDetailsTopContainer
+              isDark={isDark}
+              data-testid="videoItemDetails"
+            >
               <VideoReactPlayer url={videoUrl} />
               <VideoDetailsHeading isDark={isDark}>{title}</VideoDetailsHeading>
               <DetailsAndResponseSection>
@@ -270,7 +273,7 @@ class VideoDetails extends Component {
               </SmallInteractionSection>
               <HorizantalLine />
               <ChannelDetailsContainer>
-                <ChannelLogo src={profileImageUrl} alt={name} />
+                <ChannelLogo src={profileImageUrl} alt="channel logo" />
                 <ChannelOtherDetails>
                   <ChannelName isDark={isDark}>{name}</ChannelName>
                   <ViewTimePara isDark={isDark}>
@@ -297,13 +300,13 @@ class VideoDetails extends Component {
             {!isDark && (
               <FailureImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
-                alt="failure light theme"
+                alt=" failure view"
               />
             )}
             {isDark && (
               <FailureImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png"
-                alt="failure dark theme"
+                alt="failure view"
               />
             )}
             <FailureViewHeading isDark={isDark}>

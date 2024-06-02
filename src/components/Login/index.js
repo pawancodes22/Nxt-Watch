@@ -48,10 +48,11 @@ class Login extends Component {
     const response = await fetch(loginUrl, options)
     const jsonResponse = await response.json()
     if (response.ok) {
-      Cookies.set('jwtToken', jsonResponse.jwt_token, {expires: 2})
+      Cookies.set('jwt_token', jsonResponse.jwt_token, {expires: 2})
       this.setState({isError: false, errorMsg: ''})
+      const {history} = this.props
+      history.replace('/')
     } else {
-      console.log(jsonResponse)
       const errorMsg = jsonResponse.error_msg
       this.setState({isError: true, errorMsg})
     }
@@ -60,7 +61,7 @@ class Login extends Component {
   render() {
     const {username, password, showPassword, isError, errorMsg} = this.state
     const isDark = true
-    const jwtToken = Cookies.get('jwtToken')
+    const jwtToken = Cookies.get('jwt_token')
     if (jwtToken !== undefined) {
       return <Redirect to="/" />
     }

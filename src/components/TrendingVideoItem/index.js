@@ -1,8 +1,9 @@
 import {formatDistanceToNow} from 'date-fns'
 
 import {
-  LinkItem,
   ListItem,
+  LinkItem,
+  DivItem,
   ImageItem,
   TitlePara,
   VideoDetailsContainer,
@@ -25,28 +26,11 @@ const TrendingVideoItem = props => (
       const {channel, id, publishedAt, thumbnailUrl, title, viewCount} = item
       const {name, profileImageUrl} = channel
       return (
-        <LinkItem to={`/videos/${id}`}>
-          <ListItem>
-            <ImageItem src={thumbnailUrl} alt="title" />
-            <VideoDetailsContainer>
-              <TitlePara isDark={isDark}>{title}</TitlePara>
-              <OtherVideoDetails isDark={isDark}>{name}</OtherVideoDetails>
-              <ViewAndTimeContainer>
-                <ViewTimePara isDark={isDark}>{viewCount} views</ViewTimePara>
-                <DotIcon isDark={isDark}>•</DotIcon>
-                <ViewTimePara isDark={isDark}>
-                  {formatDistanceToNow(new Date(publishedAt), {
-                    addSuffix: true,
-                  })
-                    .split(' ')
-                    .splice(1, 3)
-                    .join(' ')}
-                </ViewTimePara>
-              </ViewAndTimeContainer>
-            </VideoDetailsContainer>
-            <SubDetailsContainer>
-              <ChannelImage src={profileImageUrl} alt="channel" />
-              <SmallVideoDetailsContainer>
+        <ListItem>
+          <LinkItem to={`/videos/${id}`}>
+            <DivItem>
+              <ImageItem src={thumbnailUrl} alt="video thumbnail" />
+              <VideoDetailsContainer>
                 <TitlePara isDark={isDark}>{title}</TitlePara>
                 <OtherVideoDetails isDark={isDark}>{name}</OtherVideoDetails>
                 <ViewAndTimeContainer>
@@ -61,10 +45,31 @@ const TrendingVideoItem = props => (
                       .join(' ')}
                   </ViewTimePara>
                 </ViewAndTimeContainer>
-              </SmallVideoDetailsContainer>
-            </SubDetailsContainer>
-          </ListItem>
-        </LinkItem>
+              </VideoDetailsContainer>
+              <SubDetailsContainer>
+                <ChannelImage src={profileImageUrl} alt="channel" />
+                <SmallVideoDetailsContainer>
+                  <TitlePara isDark={isDark}>{title}</TitlePara>
+                  <OtherVideoDetails isDark={isDark}>{name}</OtherVideoDetails>
+                  <ViewAndTimeContainer>
+                    <ViewTimePara isDark={isDark}>
+                      {viewCount} views
+                    </ViewTimePara>
+                    <DotIcon isDark={isDark}>•</DotIcon>
+                    <ViewTimePara isDark={isDark}>
+                      {formatDistanceToNow(new Date(publishedAt), {
+                        addSuffix: true,
+                      })
+                        .split(' ')
+                        .splice(1, 3)
+                        .join(' ')}
+                    </ViewTimePara>
+                  </ViewAndTimeContainer>
+                </SmallVideoDetailsContainer>
+              </SubDetailsContainer>
+            </DivItem>
+          </LinkItem>
+        </ListItem>
       )
     }}
   </NxtWatchContext.Consumer>

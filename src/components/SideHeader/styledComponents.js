@@ -6,6 +6,12 @@ import {FaGamepad, FaFire} from 'react-icons/fa'
 
 import {IoMdHome} from 'react-icons/io'
 
+import {Link} from 'react-router-dom'
+
+export const LinkStyled = styled(Link)`
+  text-decoration: none;
+`
+
 export const SideHeaderContainer = styled.div`
   width: 18%;
   background-color: ${props => (props.isDark ? '#212121' : 'none')};
@@ -26,6 +32,9 @@ export const SideHeaderUnorderedList = styled.ul`
 
 export const SideHeaderList = styled.li`
   list-style-type: none;
+`
+
+export const SideHeaderDiv = styled.div`
   background-color: ${props => {
     if (props.activeTabId === props.currentId) {
       if (props.isDark) {
@@ -58,7 +67,7 @@ export const LowerContainer = styled.div`
   padding: 20px;
 `
 
-export const ContactUsHeading = styled.h1`
+export const ContactUsHeading = styled.p`
   font-size: 15px;
 `
 

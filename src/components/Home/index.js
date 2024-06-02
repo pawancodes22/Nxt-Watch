@@ -71,7 +71,7 @@ class Home extends Component {
     this.setState({videosApiStatus: apiStatusConstants.pending})
     const {searchInput} = this.state
     const url = `https://apis.ccbp.in/videos/all?search=${searchInput}`
-    const jwtToken = Cookies.get('jwtToken')
+    const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
       headers: {
@@ -116,17 +116,21 @@ class Home extends Component {
   renderBanner = () => {
     const {displayBanner} = this.state
     return (
-      <HomeBanner displayBanner={displayBanner}>
+      <HomeBanner displayBanner={displayBanner} data-testid="banner">
         <div>
           <BannerCompanyLogo
             src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-            alt="light-theme"
+            alt="nxt watch logo"
             className="banner-company-logo"
           />
           <BannerPara>Buy Nxt Watch Premium plans with UPI</BannerPara>
           <GetItNowButton type="button">GET IT NOW</GetItNowButton>
         </div>
-        <BannerCloseButton type="button" onClick={this.hideBanner}>
+        <BannerCloseButton
+          type="button"
+          onClick={this.hideBanner}
+          data-testid="close"
+        >
           <CloseCrossSymbol />
         </BannerCloseButton>
       </HomeBanner>
@@ -152,7 +156,7 @@ class Home extends Component {
               No Search Results Found
             </NoSearchResultsHeading>
             <NoSearchResultsPara isDark={isDark}>
-              Try different keywords or remove search filter
+              Try different key words or remove search filter
             </NoSearchResultsPara>
             <RetryButton type="button" onClick={this.fetchAgain}>
               Retry
@@ -172,13 +176,13 @@ class Home extends Component {
             {!isDark && (
               <FailureImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
-                alt="failure light theme"
+                alt="failure view"
               />
             )}
             {isDark && (
               <FailureImage
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png"
-                alt="failure dark theme"
+                alt="failure view"
               />
             )}
             <FailureViewHeading isDark={isDark}>
@@ -227,7 +231,7 @@ class Home extends Component {
                 <SideHeader />
                 <HomeMainBgContainer>
                   {this.renderBanner()}
-                  <HomeVideosContainer isDark={isDark}>
+                  <HomeVideosContainer isDark={isDark} data-testid="home">
                     <SearchBoxContainer>
                       <SearchBox
                         type="search"
@@ -235,7 +239,11 @@ class Home extends Component {
                         value={searchInput}
                         onChange={this.changeSearchInput}
                       />
-                      <SearchButton type="button" onClick={this.fetchAgain}>
+                      <SearchButton
+                        type="button"
+                        onClick={this.fetchAgain}
+                        data-testid="searchButton"
+                      >
                         <FaSearch />
                       </SearchButton>
                     </SearchBoxContainer>

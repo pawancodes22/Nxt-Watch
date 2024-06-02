@@ -12,6 +12,7 @@ import {
   DotIcon,
   ViewTimePara,
   LinkStyle,
+  ListItem,
 } from './styledComponents'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -25,32 +26,36 @@ const VideoItem = props => {
       {value => {
         const {isDark} = value
         return (
-          <LinkStyle to={`/videos/${id}`}>
-            <VideoContainer>
-              <Thumbnail src={thumbnailUrl} alt="video thumbnail" />
-              <SubDetailsContainer>
-                <ChannelImage src={profileImageUrl} alt="channel" />
-                <VideoDetailsContainer>
-                  <TitlePara isDark={isDark}>{title}</TitlePara>
-                  <OtherVideoDetails isDark={isDark}>{name}</OtherVideoDetails>
-                  <ViewAndTimeContainer>
-                    <ViewTimePara isDark={isDark}>
-                      {viewCount} views
-                    </ViewTimePara>
-                    <DotIcon isDark={isDark}>•</DotIcon>
-                    <ViewTimePara isDark={isDark}>
-                      {formatDistanceToNow(new Date(publishedAt), {
-                        addSuffix: true,
-                      })
-                        .split(' ')
-                        .splice(1, 3)
-                        .join(' ')}
-                    </ViewTimePara>
-                  </ViewAndTimeContainer>
-                </VideoDetailsContainer>
-              </SubDetailsContainer>
-            </VideoContainer>
-          </LinkStyle>
+          <ListItem>
+            <LinkStyle to={`/videos/${id}`}>
+              <VideoContainer>
+                <Thumbnail src={thumbnailUrl} alt="video thumbnail" />
+                <SubDetailsContainer>
+                  <ChannelImage src={profileImageUrl} alt="channel logo" />
+                  <VideoDetailsContainer>
+                    <TitlePara isDark={isDark}>{title}</TitlePara>
+                    <OtherVideoDetails isDark={isDark}>
+                      {name}
+                    </OtherVideoDetails>
+                    <ViewAndTimeContainer>
+                      <ViewTimePara isDark={isDark}>
+                        {viewCount} views
+                      </ViewTimePara>
+                      <DotIcon isDark={isDark}>•</DotIcon>
+                      <ViewTimePara isDark={isDark}>
+                        {formatDistanceToNow(new Date(publishedAt), {
+                          addSuffix: true,
+                        })
+                          .split(' ')
+                          .splice(1, 3)
+                          .join(' ')}
+                      </ViewTimePara>
+                    </ViewAndTimeContainer>
+                  </VideoDetailsContainer>
+                </SubDetailsContainer>
+              </VideoContainer>
+            </LinkStyle>
+          </ListItem>
         )
       }}
     </NxtWatchContext.Consumer>

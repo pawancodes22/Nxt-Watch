@@ -19,6 +19,7 @@ export const HeaderContainer = styled.div`
   padding: 0px 20px;
   background-color: ${props => (props.isDark ? '#212121' : 'none')};
   width: 100%;
+  height: 8vh;
 `
 
 export const NavItemsContainer = styled.ul`
@@ -122,7 +123,7 @@ export const SmLogOutIcon = styled(IoLogOutOutline)`
 export const SmLogoutButton = styled(NoBorderButton)``
 
 export const PopupDiv = styled.div`
-  background-color: ${props => (!props.isDark ? '#faf5f5' : '#242323')};
+  background-color: ${props => (!props.isDark ? '#faf5f5' : '#545352')};
   border-radius: 8px;
   padding: 20px;
 `
