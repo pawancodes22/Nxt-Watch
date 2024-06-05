@@ -42,15 +42,6 @@ export const TitlePara = styled.p`
   }
 `
 
-export const VideoDetailsContainer = styled.div`
-  width: 48%;
-  padding: 15px;
-  @media (max-width: 575px) {
-    display: none;
-    width: 100%;
-  }
-`
-
 export const OtherVideoDetails = styled.p`
   color: ${props => (props.isDark ? '#94a3b8' : '#475569')};
   margin: 6px 0px;
@@ -80,20 +71,24 @@ export const SubDetailsContainer = styled.div`
   align-items: center;
   font-family: 'Roboto';
   @media (min-width: 576px) {
-    display: none;
     padding: 10px;
   }
 `
 
 export const ChannelImage = styled.img`
   width: 30px;
+  @media (min-width: 576px) {
+    display: none;
+  }
 `
 
-export const SmallVideoDetailsContainer = styled(VideoDetailsContainer)`
+export const SmallVideoDetailsContainer = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
+  padding: 15px;
   @media (max-width: 575px) {
+    width: 100%;
     padding-top: 10px;
   }
 `

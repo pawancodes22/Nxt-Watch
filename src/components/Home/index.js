@@ -139,7 +139,7 @@ class Home extends Component {
 
   renderVideoDetails = () => {
     const {videoDetails} = this.state
-    return videoDetails.map(item => <HomeVideoItem id={item.id} item={item} />)
+    return videoDetails.map(item => <HomeVideoItem key={item.id} item={item} />)
   }
 
   renderNoSearchResults = () => (

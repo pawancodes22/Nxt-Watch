@@ -43,6 +43,7 @@ const VideoItem = props => {
                       </ViewTimePara>
                       <DotIcon isDark={isDark}>•</DotIcon>
                       <ViewTimePara isDark={isDark}>
+                        {/* each.published_at */}
                         {formatDistanceToNow(new Date(publishedAt), {
                           addSuffix: true,
                         })

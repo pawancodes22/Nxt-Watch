@@ -16,7 +16,7 @@ import {
   MoonIcon,
   SmOptions,
   SmLogOutIcon,
-  SmLogoutButton,
+  LogoutText,
   SmOptionsButton,
   SmLogOutPopUpDiv,
   StyledLink,
@@ -195,7 +195,8 @@ const TopHeader = props => {
                         isDark={isDark}
                         className="trigger-button"
                       >
-                        Logout
+                        <LogoutText>Logout</LogoutText>
+                        <SmLogOutIcon isDark={isDark} />
                       </LogoutButton>
                     }
                   >
@@ -203,51 +204,13 @@ const TopHeader = props => {
                       <>
                         <PopupDiv isDark={isDark}>
                           <PopupHeading isDark={isDark}>
-                            Are you sure, you want to logout
+                            Are you sure, you want to logout?
                           </PopupHeading>
                           <CancelLogoutButtonsContainer>
                             <CancelButton
                               type="button"
                               className="trigger-button"
                               isDark={isDark}
-                              onClick={() => close()}
-                            >
-                              Cancel
-                            </CancelButton>
-                            <ConfirmButton onClick={LogOut}>
-                              Confirm
-                            </ConfirmButton>
-                          </CancelLogoutButtonsContainer>
-                        </PopupDiv>
-                      </>
-                    )}
-                  </Popup>
-                </div>
-              </ListItem>
-              <ListItem>
-                <div className="popup-container">
-                  <Popup
-                    modal
-                    trigger={
-                      <SmLogoutButton
-                        type="button"
-                        isDark={isDark}
-                        className="trigger-button"
-                      >
-                        <SmLogOutIcon isDark={isDark} />
-                      </SmLogoutButton>
-                    }
-                  >
-                    {close => (
-                      <>
-                        <PopupDiv isDark={isDark}>
-                          <PopupHeading isDark={isDark}>
-                            Are you sure you want to logout?
-                          </PopupHeading>
-                          <CancelLogoutButtonsContainer>
-                            <CancelButton
-                              type="button"
-                              className="trigger-button"
                               onClick={() => close()}
                             >
                               Cancel

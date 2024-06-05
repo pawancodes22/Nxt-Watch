@@ -150,6 +150,9 @@ export const DetailsAndResponseSection = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 575px) {
+    flex-direction: column;
+  }
 `
 
 export const HorizantalLine = styled.hr`
@@ -224,18 +227,8 @@ export const InteractionSection = styled.div`
   justify-content: space-between;
   width: 250px;
   @media (max-width: 575px) {
-    display: none;
-  }
-`
-
-export const SmallInteractionSection = styled(InteractionSection)`
-  @media (min-width: 576px) {
-    display: none;
-  }
-  @media (max-width: 575px) {
     margin-top: 20px;
-    display: flex;
-    width: 200px;
+    width: 180px;
   }
 `
 
@@ -248,17 +241,14 @@ export const InteractionOption = styled.div`
       : '#64748b'};
 `
 
-export const InteractionPara = styled(ViewTimePara)`
-  color: ${props =>
-    props.videoInteractionStatus === props.currentInteraction
-      ? '#2563eb'
-      : '#64748b'};
-`
-
 export const NoBorderButton = styled.button`
   border-style: none;
   background-color: transparent;
   padding-left: 0px;
+  color: ${props =>
+    props.videoInteractionStatus === props.currentInteraction
+      ? '#2563eb'
+      : '#64748b'};
 `
 
 export const VideoReactPlayer = styled(ReactPlayer)`

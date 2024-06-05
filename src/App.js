@@ -25,7 +25,7 @@ import NotFound from './components/NotFound'
 // Replace your code here
 class App extends Component {
   state = {
-    isDark: true,
+    isDark: false,
     activeTabId: 'HOME',
     savedVideos: [],
     likeStatusList: [],
@@ -102,7 +102,7 @@ class App extends Component {
           <ProtectedRoute exact path="/gaming" component={Gaming} />
           <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
           <ProtectedRoute exact path="/videos/:id" component={VideoDetails} />
-          <ProtectedRoute exact path="/bad-path" component={NotFound} />
+          <Route exact path="/bad-path" component={NotFound} />
           <Redirect to="/bad-path" />
         </Switch>
       </NxtWatchContext.Provider>

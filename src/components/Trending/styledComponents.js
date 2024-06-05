@@ -58,7 +58,7 @@ export const TrendingHeading = styled.h1`
   }
 `
 
-export const VideosContainer = styled.ul`
+export const VideosContainer = styled.div`
   flex-grow: 1;
   background-color: ${props => (props.isDark ? ' #0f0f0f ' : '#f9f9f9')};
   padding: 40px;

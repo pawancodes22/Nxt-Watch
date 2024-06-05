@@ -70,6 +70,14 @@ export const LogoutButton = styled.button`
   margin-bottom: 3px;
   padding: 4px;
   @media (max-width: 767px) {
+    border-style: none;
+    padding: 0px;
+    margin: 0px;
+  }
+`
+
+export const LogoutText = styled.span`
+  @media (max-width: 767px) {
     display: none;
   }
 `

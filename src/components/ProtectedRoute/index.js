@@ -24,8 +24,6 @@ const ProtectedRoute = props => {
           toggleActiveTab('SAVED_VIDEOS')
         } else if (path.includes('/videos/') && activeTabId !== null) {
           toggleActiveTab(null)
-        } else if (path.includes('/bad-path') && activeTabId !== null) {
-          toggleActiveTab(null)
         }
         return <Route {...props} />
       }}

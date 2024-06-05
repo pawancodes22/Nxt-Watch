@@ -6,7 +6,6 @@ import {
   LinkItem,
   ImageItem,
   TitlePara,
-  VideoDetailsContainer,
   OtherVideoDetails,
   DotIcon,
   ViewTimePara,
@@ -30,22 +29,6 @@ const SavedVideoItem = props => (
           <LinkItem to={`/videos/${id}`}>
             <DivItem>
               <ImageItem src={thumbnailUrl} alt="video thumbnail" />
-              <VideoDetailsContainer>
-                <TitlePara isDark={isDark}>{title}</TitlePara>
-                <OtherVideoDetails isDark={isDark}>{name}</OtherVideoDetails>
-                <ViewAndTimeContainer>
-                  <ViewTimePara isDark={isDark}>{viewCount} views</ViewTimePara>
-                  <DotIcon isDark={isDark}>•</DotIcon>
-                  <ViewTimePara isDark={isDark}>
-                    {formatDistanceToNow(new Date(publishedAt), {
-                      addSuffix: true,
-                    })
-                      .split(' ')
-                      .splice(1, 3)
-                      .join(' ')}
-                  </ViewTimePara>
-                </ViewAndTimeContainer>
-              </VideoDetailsContainer>
               <SubDetailsContainer>
                 <ChannelImage src={profileImageUrl} alt="channel" />
                 <SmallVideoDetailsContainer>
@@ -56,7 +39,15 @@ const SavedVideoItem = props => (
                       {viewCount} views
                     </ViewTimePara>
                     <DotIcon isDark={isDark}>•</DotIcon>
-                    <ViewTimePara isDark={isDark}>{publishedAt}</ViewTimePara>
+                    <ViewTimePara isDark={isDark}>
+                      {/* each.published_at */}
+                      {formatDistanceToNow(new Date(publishedAt), {
+                        addSuffix: true,
+                      })
+                        .split(' ')
+                        .splice(1, 3)
+                        .join(' ')}
+                    </ViewTimePara>
                   </ViewAndTimeContainer>
                 </SmallVideoDetailsContainer>
               </SubDetailsContainer>

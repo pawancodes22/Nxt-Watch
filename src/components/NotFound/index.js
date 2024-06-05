@@ -16,7 +16,10 @@ import {
 const NotFound = () => (
   <NxtWatchContext.Consumer>
     {value => {
-      const {isDark} = value
+      const {isDark, activeTabId, toggleActiveTab} = value
+      if (activeTabId !== null) {
+        toggleActiveTab(null)
+      }
       return (
         <AllPageBg>
           <TopHeader />

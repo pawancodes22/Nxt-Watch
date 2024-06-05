@@ -39,11 +39,9 @@ import {
   SaveButton,
   InteractionSection,
   InteractionOption,
-  InteractionPara,
   NoBorderButton,
   SavePara,
   VideoReactPlayer,
-  SmallInteractionSection,
 } from './styledComponents'
 
 const apiStatusConstants = {
@@ -186,6 +184,7 @@ class VideoDetails extends Component {
                   <ViewTimePara isDark={isDark}>{viewCount} views</ViewTimePara>
                   <DotIcon isDark={isDark}>•</DotIcon>
                   <ViewTimePara isDark={isDark}>
+                    {/* each.published_at */}
                     {formatDistanceToNow(new Date(publishedAt), {
                       addSuffix: true,
                     })
@@ -195,34 +194,36 @@ class VideoDetails extends Component {
                   </ViewTimePara>
                 </ViewAndTimeContainer>
                 <InteractionSection>
-                  <NoBorderButton type="button" onClick={likeVideo}>
-                    <InteractionOption
+                  <InteractionOption
+                    videoInteractionStatus={videoInteractionStatus}
+                    currentInteraction="LIKE"
+                  >
+                    <LikeButton />
+                    <NoBorderButton
                       videoInteractionStatus={videoInteractionStatus}
                       currentInteraction="LIKE"
+                      type="button"
+                      onClick={likeVideo}
                     >
-                      <LikeButton />
-                      <InteractionPara
-                        videoInteractionStatus={videoInteractionStatus}
-                        currentInteraction="LIKE"
-                      >
-                        Like
-                      </InteractionPara>
-                    </InteractionOption>
-                  </NoBorderButton>
-                  <NoBorderButton type="button" onClick={dislikeVideo}>
-                    <InteractionOption
+                      Like
+                    </NoBorderButton>
+                  </InteractionOption>
+
+                  <InteractionOption
+                    videoInteractionStatus={videoInteractionStatus}
+                    currentInteraction="DISLIKE"
+                  >
+                    <DislikeButton />
+                    <NoBorderButton
                       videoInteractionStatus={videoInteractionStatus}
                       currentInteraction="DISLIKE"
+                      type="button"
+                      onClick={dislikeVideo}
                     >
-                      <DislikeButton />
-                      <InteractionPara
-                        videoInteractionStatus={videoInteractionStatus}
-                        currentInteraction="DISLIKE"
-                      >
-                        Dislike
-                      </InteractionPara>
-                    </InteractionOption>
-                  </NoBorderButton>
+                      Dislike
+                    </NoBorderButton>
+                  </InteractionOption>
+
                   <NoBorderButton type="button" onClick={saveOrDeleteVideo}>
                     <InteractionOption>
                       <SaveButton isVideoSaved={isVideoSaved} />
@@ -233,44 +234,6 @@ class VideoDetails extends Component {
                   </NoBorderButton>
                 </InteractionSection>
               </DetailsAndResponseSection>
-              <SmallInteractionSection>
-                <NoBorderButton type="button" onClick={likeVideo}>
-                  <InteractionOption
-                    videoInteractionStatus={videoInteractionStatus}
-                    currentInteraction="LIKE"
-                  >
-                    <LikeButton />
-                    <InteractionPara
-                      videoInteractionStatus={videoInteractionStatus}
-                      currentInteraction="LIKE"
-                    >
-                      Like
-                    </InteractionPara>
-                  </InteractionOption>
-                </NoBorderButton>
-                <NoBorderButton type="button" onClick={dislikeVideo}>
-                  <InteractionOption
-                    videoInteractionStatus={videoInteractionStatus}
-                    currentInteraction="DISLIKE"
-                  >
-                    <DislikeButton />
-                    <InteractionPara
-                      videoInteractionStatus={videoInteractionStatus}
-                      currentInteraction="DISLIKE"
-                    >
-                      Dislike
-                    </InteractionPara>
-                  </InteractionOption>
-                </NoBorderButton>
-                <NoBorderButton type="button" onClick={saveOrDeleteVideo}>
-                  <InteractionOption>
-                    <SaveButton isVideoSaved={isVideoSaved} />
-                    <SavePara isVideoSaved={isVideoSaved}>
-                      {isVideoSaved ? 'Saved' : 'Save'}
-                    </SavePara>
-                  </InteractionOption>
-                </NoBorderButton>
-              </SmallInteractionSection>
               <HorizantalLine />
               <ChannelDetailsContainer>
                 <ChannelLogo src={profileImageUrl} alt="channel logo" />

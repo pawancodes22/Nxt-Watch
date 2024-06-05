@@ -72,13 +72,13 @@ class Login extends Component {
             {!isDark && (
               <LoginLogo
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                alt="light theme"
+                alt="website logo"
               />
             )}
             {isDark && (
               <LoginLogo
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-                alt="dark theme"
+                alt="website logo"
               />
             )}
             <LoginPageLabel htmlFor="username">Username</LoginPageLabel>
@@ -112,13 +112,3 @@ class Login extends Component {
   }
 }
 export default Login
-
-/*
-
-    LoginLogo, 
-    ShowPasswordContainer, 
-    LoginButton, 
-    LoginPageLabel, 
-    LoginPageInput
-
- */
