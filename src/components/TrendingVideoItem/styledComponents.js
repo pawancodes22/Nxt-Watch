@@ -12,7 +12,7 @@ export const ListItem = styled.li`
 
 export const DivItem = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 30px;
   @media (max-width: 575px) {
     flex-direction: column;
